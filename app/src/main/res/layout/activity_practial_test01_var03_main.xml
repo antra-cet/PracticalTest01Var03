@@ -30,7 +30,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="text"
-        android:text="0"
+        android:text="1"
         android:saveEnabled="false"
         app:layout_constraintTop_toBottomOf="@id/header" />
 
@@ -45,14 +45,14 @@
         app:layout_constraintTop_toBottomOf="@id/text1">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/plus"
             android:layout_width="158dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="+" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/minus"
             android:layout_width="165dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -68,18 +68,32 @@
         android:ems="10"
         android:inputType="text"
         android:saveEnabled="false"
-        android:text="0"
+        android:text="1"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <!-- A non-editable text on the bottom of the screen with the text "Sum: 0" -->
+
     <!-- A button on the right side of the screen with the text "NAVIGATE TO SECONDARY ACTIVITY" -->
+    <TextView
+        android:id="@+id/sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/navigate_to_secondary_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="60dp"
         android:text="NAVIGATE TO SECONDARY ACTIVITY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
+        app:layout_constraintTop_toBottomOf="@id/sum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
