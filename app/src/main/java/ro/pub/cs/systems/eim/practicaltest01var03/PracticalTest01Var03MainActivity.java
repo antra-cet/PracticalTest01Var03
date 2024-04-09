@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -45,5 +46,43 @@ public class PracticalTest01Var03MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Text fields must contain integer numbers", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        EditText text1 = (EditText) findViewById(R.id.text1);
+        EditText text2 = (EditText) findViewById(R.id.text2);
+
+        outState.putString("text1", ((EditText) findViewById(R.id.text1)).getText().toString());
+        outState.putString("text2", ((EditText) findViewById(R.id.text2)).getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        EditText text1 = (EditText) findViewById(R.id.text1);
+        EditText text2 = (EditText) findViewById(R.id.text2);
+
+        if(savedInstanceState.containsKey("text1")) {
+            text1.setText(
+                    savedInstanceState.getString("text1")
+            );
+        } else {
+            text1.setText("1");
+        }
+
+        if(savedInstanceState.containsKey("text2")) {
+            text2.setText(
+                    savedInstanceState.getString("text2")
+            );
+        } else {
+            text2.setText("1");
+        }
+
+//        text1.setText("1");
+//        text2.setText("1");
     }
 }
